@@ -20,7 +20,7 @@
   #define PS2_DATA_DDR DDRD
   #define PS2_DATA_BIT 1
   #define PS2_MOUSE_ROTATE 270 // compensate for east-facing device orientation
-  #define PS2_MOUSE_SCROLL_BTN_MASK (1 << PS2_MOUSE_BTN_MIDDLE)
+  #define PS2_MOUSE_SCROLL_BTN_MASK (1 << PS2_MOUSE_BTN_RIGHT)
   #define PS2_MOUSE_SCROLL_BTN_SEND TAPPING_TERM
   #define PS2_MOUSE_SCROLL_DIVISOR_V 3
   #define PS2_MOUSE_SCROLL_DIVISOR_H PS2_MOUSE_SCROLL_DIVISOR_V
@@ -28,7 +28,7 @@
 
 #if defined MH_AUTO_BUTTONS
   #define MH_AUTO_BUTTONS_LAYER MBO
-  #define MH_AUTO_BUTTONS_TIMEOUT 750
+  #define MH_AUTO_BUTTONS_TIMEOUT 450
 #endif
 
 #if !defined MH_LOW_MOUSE && defined PS2_MOUSE_ENABLE
@@ -43,13 +43,13 @@
 #endif
 
 #if defined MH_LOW_MOUSE
-  #undef PRODUCT
+  #undef PRODUCT 
   #define PRODUCT Corne Keyboard (crkbd) with low rate mouse
 #endif
 
 #if defined OLED_DRIVER_ENABLE
   #define OLED_TIMEOUT 30000 // ms
-  #define MH_OLED_TIMEOUT
+  #define MH_OLED_TIMEOUT 
 #endif
 
 #if defined RGB_MATRIX_ENABLE
