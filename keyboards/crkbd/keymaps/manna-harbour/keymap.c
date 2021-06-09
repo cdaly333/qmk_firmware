@@ -26,6 +26,131 @@
 #include MH_USER_NAME_H // for MH_AUTO_BUTTONS_LAYER
 #endif
 
+// Combos
+
+enum combo_events {
+  INT,
+  FLOAT,
+  STRING,
+  PRIVATE,
+  PUBLIC,
+  FOR,
+  FOREACH,
+  VOID,
+  THIS,
+  RETURN,
+  ELSE,
+  SINGLE_QUOTE,
+  DOUBLE_QUOTE,
+  EQUALS
+};
+
+const uint16_t PROGMEM combo_int[] = {KC_I, KC_J, COMBO_END};
+const uint16_t PROGMEM combo_float[] = {KC_G, KC_F, COMBO_END}; 
+const uint16_t PROGMEM combo_string[] = {KC_S, KC_D, COMBO_END};
+const uint16_t PROGMEM combo_private[] = {KC_I, KC_O, COMBO_END};
+const uint16_t PROGMEM combo_public[] = {KC_K, KC_L, COMBO_END};
+const uint16_t PROGMEM combo_for[] = {KC_F, KC_D, COMBO_END};
+const uint16_t PROGMEM combo_foreach[] = {KC_F, KC_S, COMBO_END};
+const uint16_t PROGMEM combo_void[] = {KC_V, KC_C, COMBO_END};
+const uint16_t PROGMEM combo_this[] = {KC_T, KC_R, COMBO_END};
+const uint16_t PROGMEM combo_return[] = {KC_R, KC_E, COMBO_END};
+const uint16_t PROGMEM combo_else[] = {KC_E, KC_S, COMBO_END};
+const uint16_t PROGMEM combo_equals[] = {KC_K, KC_J, COMBO_END};
+const uint16_t PROGMEM combo_single_quote[] = {KC_L, KC_SCLN, COMBO_END};
+const uint16_t PROGMEM combo_double_quote[] = {KC_P, KC_O, COMBO_END};
+
+combo_t key_combos[COMBO_COUNT] = {
+  [INT] = COMBO_ACTION(combo_int),
+  [FLOAT] = COMBO_ACTION(combo_float),
+  [STRING] = COMBO_ACTION(combo_string),
+  [PRIVATE] = COMBO_ACTION(combo_private),
+  [PUBLIC] = COMBO_ACTION(combo_public),
+  [FOR] = COMBO_ACTION(combo_for),
+  [FOREACH] = COMBO_ACTION(combo_foreach),
+  [VOID] = COMBO_ACTION(combo_void),
+  [THIS] = COMBO_ACTION(combo_this),
+  [RETURN] = COMBO_ACTION(combo_return),
+  [ELSE] = COMBO_ACTION(combo_else),
+  [EQUALS] = COMBO_ACTION(combo_equals),
+  [SINGLE_QUOTE] = COMBO_ACTION(combo_single_quote),
+  [DOUBLE_QUOTE] = COMBO_ACTION(combo_double_quote),
+};
+
+void process_combo_event(uint8_t combo_index, bool pressed) {
+  switch(combo_index) {
+    case INT:
+      if (pressed) {
+        SEND_STRING("int ");
+      }
+      break;
+    case FLOAT:
+      if (pressed) {
+        SEND_STRING("float ");
+      }
+      break;
+    case STRING:
+      if (pressed) {
+        SEND_STRING("string ");
+      }
+      break;
+    case PRIVATE:
+      if (pressed) {
+        SEND_STRING("private ");
+      }
+      break;
+    case PUBLIC:
+      if (pressed) {
+        SEND_STRING("public ");
+      }
+      break;
+    case FOR:
+      if (pressed) {
+        SEND_STRING("for (");
+      }
+      break;
+    case FOREACH:
+      if (pressed) {
+        SEND_STRING("foreach (");
+      }
+      break;
+    case VOID:
+      if (pressed) {
+        SEND_STRING("void ");
+      }
+      break;
+    case THIS:
+      if (pressed) {
+        SEND_STRING("this");
+      }
+      break;
+    case RETURN:
+      if (pressed) {
+        SEND_STRING("return");
+      }
+      break;
+    case ELSE:
+      if (pressed) {
+        SEND_STRING("else {");
+      }
+      break;
+    case EQUALS:
+      if (pressed) {
+        SEND_STRING(" = ");
+      }
+      break;
+    case SINGLE_QUOTE:
+      if (pressed) {
+        SEND_STRING("\'");
+      }
+      break;
+    case DOUBLE_QUOTE:
+      if (pressed) {
+        SEND_STRING("\"");
+      }
+      break;
+  }
+}
 
 #if defined MH_AUTO_BUTTONS && defined PS2_MOUSE_ENABLE && defined MOUSEKEY_ENABLE
 

@@ -3,6 +3,7 @@
 #pragma once
 
 #define EE_HANDS
+#define COMBO_COUNT 14
 
 #if defined MH_MODULE_TRACKPOINT && defined PS2_MOUSE_ENABLE
   // clock on pin 3 (d0, int0)
@@ -22,7 +23,7 @@
   #define PS2_MOUSE_ROTATE 270 // compensate for east-facing device orientation
   #define PS2_MOUSE_SCROLL_BTN_MASK (1 << PS2_MOUSE_BTN_RIGHT)
   #define PS2_MOUSE_SCROLL_BTN_SEND TAPPING_TERM
-  #define PS2_MOUSE_SCROLL_DIVISOR_V 5
+  #define PS2_MOUSE_SCROLL_DIVISOR_V 3
   #define PS2_MOUSE_SCROLL_DIVISOR_H PS2_MOUSE_SCROLL_DIVISOR_V
 #endif
 
